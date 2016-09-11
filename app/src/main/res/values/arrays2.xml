@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="film">
+        <item>Ada Cinta di SMA</item>
+        <item>Athirah</item>
+        <item>Deepwater Horizon</item>
+        <item>DPO Detachment Police Operation</item>
+        <item>Humor Baper</item>
+        <item>Marauders</item>
+        <item>Miss Peregrines Home For Preculiar Children</item>
+        <item>Morgan</item>
+        <item>Petes Dragon</item>
+        <item>Pinky Promise</item>
+        <item>Regression</item>
+        <item>Snowden</item>
+        <item>Spy In Love</item>
+        <item>Storks</item>
+        <item>The Doll</item>
+        <item>The Magnificent Seven</item>
+        <item>USS Indianapolis: MEN OF COURAGE</item>
+        <item>Will You Marry Me</item>
+    </string-array>
+</resources>
