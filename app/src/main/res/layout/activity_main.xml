@@ -193,6 +193,60 @@
                 android:inputType="time" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingTop="10dp"
+            android:text="Makanan dan Minuman"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <CheckBox
+                android:id="@+id/checkBoxPC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.16"
+                android:checked="false"
+                android:text="PopCorn" />
+
+            <CheckBox
+                android:id="@+id/checkBoxS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Snack" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <CheckBox
+                android:id="@+id/checkBoxSD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.17"
+                android:checked="false"
+                android:text="Soft Drink" />
+
+            <CheckBox
+                android:id="@+id/checkBoxMW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Mineral Water" />
+        </LinearLayout>
+
         <Button
         android:id="@+id/buttonOK"
         style="@style/Base.TextAppearance.AppCompat.Title"
@@ -210,6 +264,14 @@
         android:paddingTop="10dp"
         android:text="New Text"
         android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/textViewMakanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="New Text"
+            android:textSize="16dp" />
 
         <TextView
         android:id="@+id/textViewHasil"

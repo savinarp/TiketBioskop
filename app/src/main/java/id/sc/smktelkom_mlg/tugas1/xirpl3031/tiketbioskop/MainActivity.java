@@ -4,18 +4,22 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
     EditText etNama, etEmail;
     RadioButton rb21, rbXXI;
     Button bOk;
-    TextView tvHasil, tvButton;
+    TextView tvHasil, tvButton, tvMakanan;
     Spinner spKota, spFilm;
+    CheckBox cbPC, cbS, cbSD, cbMW;
+    int nMakanan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +32,13 @@ public class MainActivity extends AppCompatActivity {
         rbXXI = (RadioButton) findViewById(R.id.rbXXI);
         spKota = (Spinner) findViewById(R.id.spinner);
         spFilm = (Spinner) findViewById(R.id.spinner2);
+        cbPC = (CheckBox) findViewById(R.id.checkBoxPC);
+        cbS = (CheckBox) findViewById(R.id.checkBoxS);
+        cbSD = (CheckBox) findViewById(R.id.checkBoxSD);
+        cbMW = (CheckBox) findViewById(R.id.checkBoxMW);
         bOk = (Button) findViewById(R.id.buttonOK);
         tvButton = (TextView) findViewById(R.id.textViewButton);
+        tvMakanan = (TextView) findViewById(R.id.textViewMakanan);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
         bOk.setOnClickListener(new View.OnClickListener() {
@@ -40,9 +49,17 @@ public class MainActivity extends AppCompatActivity {
                 doClick2();
             }
         });
+
+        cbPC.setOnCheckedChangeListener(this);
+        cbS.setOnCheckedChangeListener(this);
+        cbSD.setOnCheckedChangeListener(this);
+        cbMW.setOnCheckedChangeListener(this);
     }
 
     private void doClick2() {
+        String hasil3 = "Pesanan Anda : \n";
+        int starlen = hasil3.length();
+        if (cbPC.isChecked()) hasil3 += cbPC.getText() + "\n";
 
     }
 
@@ -103,5 +120,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return valid;
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundbutton, boolean isChecked) {
+        if (isChecked) nMakanan += 1;
+        else nMakanan -= 1;
+
+        tvMakanan.setText("Makanan dan Minuman Pesanan Anda (" + nMakanan + " terpilih)");
+
+
     }
 }
