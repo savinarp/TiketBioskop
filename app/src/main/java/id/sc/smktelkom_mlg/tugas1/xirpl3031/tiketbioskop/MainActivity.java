@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
-    EditText etNama, etEmail;
+    EditText etNama, etEmail, etTelepon, etTanggal, etWaktu;
     RadioButton rb21, rbXXI;
     Button bOk;
     TextView tvHasil, tvButton, tvMakanan;
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         setContentView(R.layout.activity_main);
 
         etNama = (EditText) findViewById(R.id.editTextNama);
+        etTelepon = (EditText) findViewById(R.id.editTextTelepon);
         etEmail = (EditText) findViewById(R.id.editTextEmail);
         rb21 = (RadioButton) findViewById(R.id.rb21);
         rbXXI = (RadioButton) findViewById(R.id.rbXXI);
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         cbS = (CheckBox) findViewById(R.id.checkBoxS);
         cbSD = (CheckBox) findViewById(R.id.checkBoxSD);
         cbMW = (CheckBox) findViewById(R.id.checkBoxMW);
+        etTanggal = (EditText) findViewById(R.id.editTextTanggal);
+        etWaktu = (EditText) findViewById(R.id.editTextWaktu);
         bOk = (Button) findViewById(R.id.buttonOK);
         tvButton = (TextView) findViewById(R.id.textViewButton);
         tvMakanan = (TextView) findViewById(R.id.textViewMakanan);
@@ -47,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
                 doProcess();
                 doClick();
                 doClick2();
+                doClick3();
+                doClick4();
             }
         });
 
@@ -54,6 +59,42 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         cbS.setOnCheckedChangeListener(this);
         cbSD.setOnCheckedChangeListener(this);
         cbMW.setOnCheckedChangeListener(this);
+    }
+
+    private void doClick4() {
+        String Tanggal = etTanggal.getText().toString();
+        String Waktu = etWaktu.getText().toString();
+        String hasil5 = null;
+        boolean valid = true;
+
+        if (Tanggal.isEmpty()) {
+            etTanggal.setError("Tanggal Belum Anda Isi");
+            valid = false;
+        } else {
+            etTanggal.setError(null);
+        }
+
+        if (Waktu.isEmpty()) {
+            etWaktu.setError("Waktu Belum Anda Isi");
+        } else {
+            etWaktu.setError(null);
+        }
+    }
+
+    private void doClick3() {
+        String telepon = etTelepon.getText().toString();
+        String hasil4 = null;
+        boolean valid = true;
+
+        if (telepon.isEmpty()) {
+            etTelepon.setError("Nomor Telepon Belum Anda Isi");
+            valid = false;
+        } else if (telepon.length() < 10) {
+            etTelepon.setError("Nomor Minimal 10 Digit");
+            valid = false;
+        } else {
+            etTelepon.setError(null);
+        }
     }
 
     private void doClick2() {
@@ -83,11 +124,17 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         if (isValid()) {
             String nama = etNama.getText().toString();
             String email = etEmail.getText().toString();
+            String telepon = etTelepon.getText().toString();
+            String tanggal = etTanggal.getText().toString();
+            String Waktu = etWaktu.getText().toString();
             tvHasil.setText("Data Anda \n\n" +
                     "Nama : " + nama + "\n" +
                     "Email : " + email + "\n" +
+                    "Nomor Telp : " + telepon + "\n" +
                     "Kota : " + spKota.getSelectedItem().toString() + "\n" +
                     "Film : " + spFilm.getSelectedItem().toString() + "\n" +
+                    "Hari : " + tanggal + "\n" +
+                    "Waktu : " + Waktu + "\n" +
                     "\nTerima Kasih Telah Berkunjung!");
         }
     }
